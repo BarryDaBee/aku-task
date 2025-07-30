@@ -75,9 +75,16 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
     result.fold(
       (failure) => emit(currentState.copyWith(isLoadingMore: false)),
       (response) {
+        final existingIds =
+            currentState.users?.users.map((e) => e.id).toSet() ?? {};
+
+        final newUsers = response.users
+            .where((user) => !existingIds.contains(user.id))
+            .toList();
+
         final combinedUsers = <UserEntity>[
           ...currentState.users?.users ?? [],
-          ...response.users,
+          ...newUsers,
         ];
         final updated = PaginatedUsersEntity(
           users: combinedUsers,

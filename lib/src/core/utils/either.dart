@@ -1,10 +1,10 @@
+import 'package:equatable/equatable.dart';
+
 /// A type that holds either a [Left] or a [Right] value.
-///
 /// [Left] is used for failure, [Right] for success.
-abstract class Either<L, R> {
+abstract class Either<L, R> extends Equatable {
   const Either();
 
-  /// Unwraps the value by calling the appropriate function.
   T fold<T>(T Function(L left) ifLeft, T Function(R right) ifRight) {
     if (this is Left<L, R>) {
       return ifLeft((this as Left<L, R>).value);
@@ -25,10 +25,22 @@ abstract class Either<L, R> {
 class Left<L, R> extends Either<L, R> {
   const Left(this.value);
   final L value;
+
+  @override
+  List<Object?> get props => [value];
+
+  @override
+  String toString() => 'Left($value)';
 }
 
 /// Holds a success value.
 class Right<L, R> extends Either<L, R> {
   const Right(this.value);
   final R value;
+
+  @override
+  List<Object?> get props => [value];
+
+  @override
+  String toString() => 'Right($value)';
 }

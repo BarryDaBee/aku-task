@@ -5,10 +5,9 @@ abstract class Failure extends Equatable {
   final String message;
   final dynamic payload;
   @override
-  List<Object> get props => [];
+  List<Object> get props => [message];
 }
 
-// General failures
 class ServerFailure extends Failure {
   const ServerFailure({
     dynamic payload,
@@ -16,9 +15,14 @@ class ServerFailure extends Failure {
   }) : super(message ?? 'Something Went Wrong', payload);
 }
 
-// General failures
 class CacheFailure extends Failure {
   const CacheFailure({
+    String? message,
+  }) : super(message ?? 'Something Went Wrong');
+}
+
+class UnknownFailure extends Failure {
+  const UnknownFailure({
     String? message,
   }) : super(message ?? 'Something Went Wrong');
 }

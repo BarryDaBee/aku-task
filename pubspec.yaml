@@ -47,6 +47,7 @@ dependencies:
   retrofit: ^4.7.0
   rxdart: ^0.28.0
   mocktail: ^1.0.4
+  bloc_test: ^10.0.0
 
 
 
