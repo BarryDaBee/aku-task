@@ -23,45 +23,59 @@ This project uses **Flutter (stable channel)**.
 
 ### 📦 Installation
 
-1. **Clone the Repository**
+**Clone the Repository**
 
 ```bash
 git clone git@github.com:BarryDaBee/aku-task.git
 cd aku-task
 ```
-
 ### 🚀 Steps to Run
 
-#### 1. 🔧 Set Up Dependencies and Generate Code
+#### 1. 🔧 Set Up Dependencies and Generate Code ‼️
 
 Run the following to clean the project, install dependencies, generate localization and `build_runner` outputs (e.g., `freezed`, `json_serializable`):
+```bash
+make fresh
+``` 
 
-`make fresh` 
+This will run the following commands:
 
-> Equivalent to:  
-> `flutter clean && flutter pub get && dart run build_runner build -d && flutter gen-l10n`
+-   `flutter clean` – Resets the build directory
+-   `flutter pub get` – Fetches dependencies
+-   `dart run build_runner build -d` – Generates `freezed`, `json_serializable`
+-   `flutter gen-l10n` – Generates localization files
 
-----------
+#### 2. 🚀 Run the app on a connected device or emulator ‼️
 
-#### 2. 🔄 Regenerate Code Only
+```bash
+flutter run
+```
+
+#### 3. 🔄 Regenerate Code Only
 
 If you just need to regenerate code (e.g., after editing models or annotations):
 
-`make runner` 
+```bash
+make runner
+``` 
 
 > Runs `dart run build_runner build -d`
 
-#### 3. 👀 Watch for File Changes
+#### 4. 👀 Watch for File Changes
 
 Automatically regenerates code on file changes during development:
-`make watch` 
+```bash
+make watch
+```
 
 > Runs `dart run build_runner watch -d`
 
-#### 4. 📦 Build APK (for Android)
+#### 5. 📦 Build APK (for Android)
 
 To create an APK:
-`make apk` 
+```bash
+make apk
+``` 
 
 > Equivalent to:  
 > `flutter clean && flutter build apk`
