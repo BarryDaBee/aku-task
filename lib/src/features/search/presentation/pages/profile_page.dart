@@ -33,17 +33,24 @@ class ProfilePage extends StatelessWidget {
             Text(user.fullName ?? 'Anon', style: textTheme.headlineSmall),
             Text(user.email ?? '', style: textTheme.bodyLarge),
             const SizedBox(height: 24),
-            _buildInfoRow('Username', user.username),
-            _buildInfoRow('Phone', user.phone),
-            _buildInfoRow('Company', user.company),
-            _buildInfoRow('City', user.city),
+            _InfoRow(label: 'Username', value: user.username),
+            _InfoRow(label: 'Phone', value: user.phone),
+            _InfoRow(label: 'Company', value: user.company),
+            _InfoRow(label: 'City', value: user.city),
           ],
         ),
       ),
     );
   }
+}
 
-  Widget _buildInfoRow(String label, String? value) {
+class _InfoRow extends StatelessWidget {
+  const _InfoRow({required this.label, this.value});
+  final String label;
+  final String? value;
+
+  @override
+  Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 6),
       child: Row(

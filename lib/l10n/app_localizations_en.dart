@@ -16,4 +16,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get usersNotFound => 'Users not found';
+
+  @override
+  String get search => 'Search';
 }

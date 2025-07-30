@@ -42,6 +42,9 @@ class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(context.l10n?.search ?? ''),
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24),
         child: SafeArea(
@@ -62,7 +65,6 @@ class _SearchPageState extends State<SearchPage> {
                   );
                 },
               ),
-              const SizedBox(height: 16),
               Expanded(
                 child: BlocBuilder<SearchBloc, SearchState>(
                   bloc: _searchBloc,

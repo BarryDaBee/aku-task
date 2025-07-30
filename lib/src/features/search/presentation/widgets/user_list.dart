@@ -30,6 +30,7 @@ class UserList extends StatelessWidget {
     return RefreshIndicator(
       onRefresh: onRefresh,
       child: ListView.separated(
+        padding: const EdgeInsets.symmetric(vertical: 16),
         controller: scrollController,
         itemCount: paginatedUsers!.users.length + (isLoading ? 1 : 0),
         itemBuilder: (context, index) {
