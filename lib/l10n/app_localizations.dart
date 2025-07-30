@@ -98,6 +98,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Search user...'**
   String get searchUser;
+
+  /// No description provided for @thatsEveryone.
+  ///
+  /// In en, this message translates to:
+  /// **'That\'s everyone'**
+  String get thatsEveryone;
+
+  /// No description provided for @usersNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'Users not found'**
+  String get usersNotFound;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

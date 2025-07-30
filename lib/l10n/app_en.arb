@@ -1,3 +1,5 @@
 {
-  "searchUser": "Search user..."
+  "searchUser": "Search user...",
+  "thatsEveryone": "That's everyone",
+  "usersNotFound": "Users not found"
 }

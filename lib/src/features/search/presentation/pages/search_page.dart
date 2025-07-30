@@ -23,7 +23,7 @@ class _SearchPageState extends State<SearchPage> {
   final _searchBloc = SearchBloc(
     getUsersByQueryUseCase: locator<GetUsersByQueryUseCase>(),
     getUsersUseCase: locator<GetUsersUseCase>(),
-  )..add(const SearchEvent.getUsers(GetUsersParams(limit: 10, skip: 0)));
+  )..add(const SearchEvent.getUsers(GetUsersParams()));
 
   void _onScroll(BuildContext context) {
     if (_scrollController.position.pixels >=
@@ -57,7 +57,7 @@ class _SearchPageState extends State<SearchPage> {
                   if (value.isEmpty) return;
                   _searchBloc.add(
                     SearchEvent.getUsersByQuery(
-                      GetUsersParams(limit: 10, skip: 0, query: value),
+                      GetUsersParams(query: value),
                     ),
                   );
                 },
@@ -96,7 +96,7 @@ class _SearchPageState extends State<SearchPage> {
                                     onRefresh: () async {
                                       _searchBloc.add(
                                         const SearchEvent.getUsers(
-                                          GetUsersParams(limit: 10, skip: 0),
+                                          GetUsersParams(),
                                         ),
                                       );
                                     },
@@ -114,7 +114,7 @@ class _SearchPageState extends State<SearchPage> {
                                   );
                                 },
                                 child: Text(
-                                  "That's everyone!",
+                                  context.l10n?.thatsEveryone ?? '',
                                   style: context.textTheme.bodyLarge?.copyWith(
                                     fontWeight: FontWeight.w600,
                                   ),

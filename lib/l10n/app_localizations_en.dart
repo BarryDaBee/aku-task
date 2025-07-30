@@ -10,4 +10,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get searchUser => 'Search user...';
+
+  @override
+  String get thatsEveryone => 'That\'s everyone';
+
+  @override
+  String get usersNotFound => 'Users not found';
 }
