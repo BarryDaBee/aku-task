@@ -29,6 +29,44 @@ This project uses **Flutter (stable channel)**.
 git clone git@github.com:BarryDaBee/aku-task.git
 cd aku-task
 ```
+
+### 🚀 Steps to Run
+
+#### 1. 🔧 Set Up Dependencies and Generate Code
+
+Run the following to clean the project, install dependencies, generate localization and `build_runner` outputs (e.g., `freezed`, `json_serializable`):
+
+`make fresh` 
+
+> Equivalent to:  
+> `flutter clean && flutter pub get && dart run build_runner build -d && flutter gen-l10n`
+
+----------
+
+#### 2. 🔄 Regenerate Code Only
+
+If you just need to regenerate code (e.g., after editing models or annotations):
+
+`make runner` 
+
+> Runs `dart run build_runner build -d`
+
+#### 3. 👀 Watch for File Changes
+
+Automatically regenerates code on file changes during development:
+`make watch` 
+
+> Runs `dart run build_runner watch -d`
+
+#### 4. 📦 Build APK (for Android)
+
+To create an APK:
+`make apk` 
+
+> Equivalent to:  
+> `flutter clean && flutter build apk`
+
+
 ## Folder Structure :open_file_folder:
 
 ```
